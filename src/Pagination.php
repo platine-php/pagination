@@ -417,11 +417,11 @@ class Pagination
      */
     public function getPages(): array
     {
-        $pages = [];
-
         if ($this->totalPages <= 1) {
             return [];
         }
+
+        $pages = [];
 
         if ($this->totalPages <= $this->maxPages) {
             for ($i = 1; $i <= $this->totalPages; $i++) {
