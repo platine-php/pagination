@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Platine\Test\Pagination;
 
 use Platine\Pagination\Page;
-use Platine\PlatineTestCase;
+use Platine\Dev\PlatineTestCase;
 
 /**
  * Page class tests

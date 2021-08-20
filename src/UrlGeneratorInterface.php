@@ -60,4 +60,10 @@ interface UrlGeneratorInterface
      * @return string
      */
     public function generatePageUrl(int $page): string;
+
+    /**
+     * Return the URL pattern
+     * @return string
+     */
+    public function getUrlPattern(): string;
 }

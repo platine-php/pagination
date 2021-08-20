@@ -78,4 +78,12 @@ class SimpleUrlGenerator implements UrlGeneratorInterface
     {
         return str_replace('(num)', (string) $page, $this->urlPattern);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUrlPattern(): string
+    {
+        return $this->urlPattern;
+    }
 }

@@ -482,6 +482,30 @@ class Pagination
     }
 
     /**
+     * Return the pagination details
+     * @return array<string, mixed>
+     */
+    public function getInfo(): array
+    {
+        $pages = [];
+        foreach ($this->getPages() as $page) {
+            $pages[] = $page->getNumber();
+        }
+
+        return [
+            'offset' => $this->getOffset(),
+            'limit' => $this->getItemsPerPage(),
+            'total_items' => $this->getTotalItems(),
+            'total_page' => $this->getTotalPages(),
+            'page' => $this->getCurrentPage(),
+            'pages' => $pages,
+            'next' => $this->getNextPage(),
+            'previous' => $this->getPreviousPage(),
+            'url' => $this->getUrlGenerator()->getUrlPattern(),
+        ];
+    }
+
+    /**
      * The string representation of pagination
      * @return string
      */

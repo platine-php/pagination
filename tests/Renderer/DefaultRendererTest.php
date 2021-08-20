@@ -7,7 +7,7 @@ namespace Platine\Test\Pagination\Renderer;
 use Platine\Pagination\Page;
 use Platine\Pagination\Pagination;
 use Platine\Pagination\Renderer\DefaultRenderer;
-use Platine\PlatineTestCase;
+use Platine\Dev\PlatineTestCase;
 
 /**
  * DefaultRenderer class tests
@@ -93,7 +93,7 @@ class DefaultRendererTest extends PlatineTestCase
         $this->assertEquals(
             '<ul class = "pagination"><li><a href = "/page/1">'
                 . '&laquo; Prev</a></li><li><a href = "/page/1">1</a></li>'
-                . '<li class = "active><a href = "/page/2">2</a></li>'
+                . '<li class = "active"><a href = "/page/2">2</a></li>'
                 . '<li class = "disabled"><span>...</span></li>'
                 . '<li><a href = "/page/4">4</a></li><li>'
                 . '<a href = "/page/3">Next &raquo;</a></li></ul>',

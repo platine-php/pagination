@@ -78,7 +78,7 @@ class DefaultRenderer implements RendererInterface
 
         foreach ($pages as $page) {
             if ($page->getUrl() !== null) {
-                $html .= '<li' . ($page->isCurrent() ? ' class = "active' : '')
+                $html .= '<li' . ($page->isCurrent() ? ' class = "active"' : '')
                       . '><a href = "' . $page->getUrl() . '">'
                       . $page->getNumber() . '</a></li>';
             } else {

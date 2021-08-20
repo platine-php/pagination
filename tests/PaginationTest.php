@@ -11,7 +11,7 @@ use Platine\Pagination\Renderer\DefaultRenderer;
 use Platine\Pagination\RendererInterface;
 use Platine\Pagination\UrlGenerator\SimpleUrlGenerator;
 use Platine\Pagination\UrlGeneratorInterface;
-use Platine\PlatineTestCase;
+use Platine\Dev\PlatineTestCase;
 
 /**
  * Pagination class tests
@@ -75,6 +75,27 @@ class PaginationTest extends PlatineTestCase
         $this->assertEquals('Bar', $s->getNextText());
         $this->assertEquals('my_url', $s->getNextUrl());
         $this->assertEquals('my_url', $s->getPreviousUrl());
+    }
+
+    public function testGetInfo(): void
+    {
+        $renderer = $this->getMockInstance(DefaultRenderer::class);
+        $urlGenerator = $this->getMockInstance(
+            SimpleUrlGenerator::class,
+            [
+              'generatePageUrl' => 'my_url'
+            ]
+        );
+        $s = new Pagination($urlGenerator, $renderer);
+
+        $s->setTotalItems(100)
+           ->setCurrentPage(2)
+            ->setPreviousText('Foo')
+            ->setNextText('Bar');
+
+        $this->assertEquals('{"offset":10,"limit":10,"total_items":100,"total_page"'
+                . ':10,"page":2,"pages":[1,2,3,4,5,6,7,8,9,10],"next":3,'
+                . '"previous":1,"url":""}', json_encode($s->getInfo()));
     }
 
     public function testPreviousNextNull(): void

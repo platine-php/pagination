@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Platine\Test\Pagination\UrlGenerator;
 
 use Platine\Pagination\UrlGenerator\SimpleUrlGenerator;
-use Platine\PlatineTestCase;
+use Platine\Dev\PlatineTestCase;
 
 /**
  * SimpleUrlGenerator class tests
@@ -32,6 +32,12 @@ class SimpleUrlGeneratorTest extends PlatineTestCase
             $s,
             'urlPattern'
         ));
+    }
+
+    public function testGetUrlPattern(): void
+    {
+        $s = new SimpleUrlGenerator('/page/(num)');
+        $this->assertEquals('/page/(num)', $s->getUrlPattern());
     }
 
     public function testGeneratePageUrl(): void
