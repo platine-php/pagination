@@ -57,7 +57,6 @@ use Platine\Pagination\UrlGenerator\SimpleUrlGenerator;
  */
 class Pagination
 {
-
     /**
      * The URL generator instance
      * @var UrlGeneratorInterface

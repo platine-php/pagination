@@ -53,7 +53,6 @@ namespace Platine\Pagination;
  */
 class Page
 {
-
     /**
      * The page number
      * @var int|string

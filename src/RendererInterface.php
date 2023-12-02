@@ -53,7 +53,6 @@ namespace Platine\Pagination;
  */
 interface RendererInterface
 {
-
     /**
      * Render the pagination links
      * @param Pagination $pagination

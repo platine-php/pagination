@@ -15,7 +15,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class SimpleUrlGeneratorTest extends PlatineTestCase
 {
-
     public function testConstructorDefault(): void
     {
         $s = new SimpleUrlGenerator();

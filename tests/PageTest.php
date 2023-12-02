@@ -15,7 +15,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class PageTest extends PlatineTestCase
 {
-
     public function testPageNumberIsNumeric(): void
     {
         $s = new Page(2, '/page/2', true);

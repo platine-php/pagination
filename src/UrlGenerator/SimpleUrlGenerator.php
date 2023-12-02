@@ -55,7 +55,6 @@ use Platine\Pagination\UrlGeneratorInterface;
  */
 class SimpleUrlGenerator implements UrlGeneratorInterface
 {
-
     /**
      * The URL pattern to use with placeholder (num)
      * @var string

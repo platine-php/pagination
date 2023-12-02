@@ -21,7 +21,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class PaginationTest extends PlatineTestCase
 {
-
     public function testConstructorDefault(): void
     {
         $s = new Pagination();

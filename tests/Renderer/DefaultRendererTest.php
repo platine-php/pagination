@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class DefaultRendererTest extends PlatineTestCase
 {
-
     public function testConstructor(): void
     {
         $s = new DefaultRenderer();

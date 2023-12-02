@@ -53,7 +53,6 @@ namespace Platine\Pagination;
  */
 interface UrlGeneratorInterface
 {
-
     /**
      * Generate the page URL
      * @param int $page
