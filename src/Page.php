@@ -48,7 +48,7 @@ declare(strict_types=1);
 namespace Platine\Pagination;
 
 /**
- * Class Page
+ * @class Page
  * @package Platine\Pagination
  */
 class Page
@@ -57,7 +57,7 @@ class Page
      * The page number
      * @var int|string
      */
-    protected $number;
+    protected int|string $number;
 
     /**
      * The page URL
@@ -77,7 +77,7 @@ class Page
      * @param string|null $url
      * @param bool $current
      */
-    public function __construct($number, ?string $url, bool $current = false)
+    public function __construct(int|string $number, ?string $url, bool $current = false)
     {
         $this->number = $number;
         $this->url = $url;
@@ -88,7 +88,7 @@ class Page
      * Return the page number
      * @return int|string
      */
-    public function getNumber()
+    public function getNumber(): int|string
     {
         return $this->number;
     }

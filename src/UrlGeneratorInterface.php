@@ -48,7 +48,7 @@ declare(strict_types=1);
 namespace Platine\Pagination;
 
 /**
- * Class UrlGeneratorInterface
+ * @class UrlGeneratorInterface
  * @package Platine\Pagination
  */
 interface UrlGeneratorInterface

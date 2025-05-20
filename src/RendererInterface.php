@@ -48,7 +48,7 @@ declare(strict_types=1);
 namespace Platine\Pagination;
 
 /**
- * Class RendererInterface
+ * @class RendererInterface
  * @package Platine\Pagination
  */
 interface RendererInterface

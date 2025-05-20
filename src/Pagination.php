@@ -50,12 +50,13 @@ namespace Platine\Pagination;
 use InvalidArgumentException;
 use Platine\Pagination\Renderer\DefaultRenderer;
 use Platine\Pagination\UrlGenerator\SimpleUrlGenerator;
+use Stringable;
 
 /**
- * Class Pagination
+ * @class Pagination
  * @package Platine\Pagination
  */
-class Pagination
+class Pagination implements Stringable
 {
     /**
      * The URL generator instance
@@ -120,13 +121,8 @@ class Pagination
         ?UrlGeneratorInterface $urlGenerator = null,
         ?RendererInterface $renderer = null
     ) {
-        $this->urlGenerator = $urlGenerator
-                               ? $urlGenerator
-                               : new SimpleUrlGenerator();
-
-        $this->renderer = $renderer
-                            ? $renderer
-                            : new DefaultRenderer();
+        $this->urlGenerator = $urlGenerator ?? new SimpleUrlGenerator();
+        $this->renderer = $renderer ?? new DefaultRenderer();
 
         $this->updateTotalPages();
     }
@@ -160,7 +156,7 @@ class Pagination
     public function getNextUrl(): ?string
     {
         if ($this->hasNextPage()) {
-            return $this->getPageUrl($this->getNextPage());
+            return $this->getPageUrl((int) $this->getNextPage());
         }
 
         return null;
@@ -195,7 +191,7 @@ class Pagination
     public function getPreviousUrl(): ?string
     {
         if ($this->hasPreviousPage()) {
-            return $this->getPageUrl($this->getPreviousPage());
+            return $this->getPageUrl((int) $this->getPreviousPage());
         }
 
         return null;
@@ -412,7 +408,7 @@ class Pagination
     /**
      * Return the pages links data
      *
-     * @return array<Page>
+     * @return Page[]
      */
     public function getPages(): array
     {

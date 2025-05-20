@@ -47,11 +47,12 @@ declare(strict_types=1);
 
 namespace Platine\Pagination\Renderer;
 
+use Platine\Pagination\Page;
 use Platine\Pagination\Pagination;
 use Platine\Pagination\RendererInterface;
 
 /**
- * Class DefaultRenderer
+ * @class DefaultRenderer
  * @package Platine\Pagination\Renderer
  */
 class DefaultRenderer implements RendererInterface
@@ -68,27 +69,38 @@ class DefaultRenderer implements RendererInterface
         $html = '<ul class = "pagination">';
 
         if ($pagination->hasPreviousPage()) {
-            $html .= '<li><a href = "' . $pagination->getPreviousUrl() . '">&laquo; '
-                    . $pagination->getPreviousText() . '</a></li>';
+            $html .= sprintf(
+                '<li><a href = "%s">&laquo; %s</a></li>',
+                $pagination->getPreviousUrl(),
+                $pagination->getPreviousText()
+            );
         }
 
-        /** @var array<\Platine\Pagination\Page> $pages */
+        /** @var Page[] $pages */
         $pages = $pagination->getPages();
 
         foreach ($pages as $page) {
             if ($page->getUrl() !== null) {
-                $html .= '<li' . ($page->isCurrent() ? ' class = "active"' : '')
-                      . '><a href = "' . $page->getUrl() . '">'
-                      . $page->getNumber() . '</a></li>';
+                $html .= sprintf(
+                    '<li%s><a href = "%s">%d</a></li>',
+                    $page->isCurrent() ? ' class = "active"' : '',
+                    $page->getUrl(),
+                    $page->getNumber()
+                );
             } else {
-                $html .= '<li class = "disabled"><span>'
-                        . $page->getNumber() . '</span></li>';
+                $html .= sprintf(
+                    '<li class = "disabled"><span>%s</span></li>',
+                    $page->getNumber()
+                );
             }
         }
 
         if ($pagination->hasNextPage()) {
-            $html .= '<li><a href = "' . $pagination->getNextUrl() . '">'
-                    . $pagination->getNextText() . ' &raquo;</a></li>';
+            $html .= sprintf(
+                '<li><a href = "%s">%s &raquo;</a></li>',
+                $pagination->getNextUrl(),
+                $pagination->getNextText()
+            );
         }
 
         $html .= '</ul>';

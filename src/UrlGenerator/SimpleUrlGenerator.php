@@ -50,7 +50,7 @@ namespace Platine\Pagination\UrlGenerator;
 use Platine\Pagination\UrlGeneratorInterface;
 
 /**
- * Class SimpleUrlGenerator
+ * @class SimpleUrlGenerator
  * @package Platine\Pagination\UrlGenerator
  */
 class SimpleUrlGenerator implements UrlGeneratorInterface
